@@ -1,0 +1,28 @@
+{
+  "name": "react-weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MichaelBunting/react-weather.git",
+  "author": "MichaelBunting <mikebunting1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "express": "^4.15.2",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.4.1",
+    "webpack-dev-middleware": "^1.10.2"
+  },
+  "scripts": {
+    "compile": "webpack",
+    "start": "node server.js & gulp watch"
+  }
+}
