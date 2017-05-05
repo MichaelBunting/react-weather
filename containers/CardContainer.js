@@ -32,10 +32,12 @@ class CardContainer extends React.Component {
 
     render() {
         return (
-            <Card
-                location={this.state.location}
-                weatherInfo={this.state.weatherInfo}
-                isLoading={this.state.isLoading} />
+            <div className="container">
+                <Card
+                    location={this.state.location}
+                    weatherInfo={this.state.weatherInfo}
+                    isLoading={this.state.isLoading} />
+            </div>
         )
     }
 }

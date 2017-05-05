@@ -1,0 +1,79 @@
+.card {
+    width: 100%;
+    align-items: center;
+    background: $charcoal;
+    color: $off-white;
+    box-shadow: 2px 2px 50px 1px rgba($charcoal-dark, .4);
+
+    &-container {
+        width: 50%;
+        padding: 25px;
+        float: left;
+        max-width: 600px;
+    }
+
+    &__loc {
+        padding: 30px;
+        text-align: center;
+        border-bottom: 1px solid $charcoal-dark;
+    }
+
+    &__city {
+        font-weight: 400;
+        color: $blue;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin: 0;
+        font-size: 34px;
+        text-shadow: 0 0 30px rgba($blue, .5);
+    }
+
+    &__condition {
+        color: $charcoal-light;
+        margin: 0;
+        margin-top: 5px;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    &__block {
+        flex: 1 0 50%;
+        text-align: center;
+        padding: 40px;
+        border-right: 1px solid $charcoal-dark;
+        border-bottom: 1px solid $charcoal-dark;
+
+        &:nth-child(even) {
+            border-right: 0;
+        }
+
+        &-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        &-title {
+            color: $charcoal-light;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        &-val {
+            font-size: 70px;
+            color: $off-white;
+            line-height: .9;
+            margin-top: 20px;
+            text-shadow: 0 0 40px rgba($off-white, .3);
+
+            sup {
+                font-size: .45em;
+                vertical-align: top;
+                margin-left: -15px;
+                font-weight: 300;
+            }
+        }
+    }
+}
