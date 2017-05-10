@@ -5,8 +5,8 @@ import Card from '../components/Card';
 import {WeatherCurrent} from '../helpers/WeatherCurrent';
 
 class CardContainer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             cityVal: 'Loading...',
@@ -36,25 +36,25 @@ class CardContainer extends React.Component {
     }
 
     componentDidMount() {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            this.getWeatherInfo(`weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`);
-        });
-
-        // this.getWeatherInfo('weather?q=' + this.state.location);
+        if (this.props.currentLocation) {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                this.getWeatherInfo(`weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`);
+            });
+        } else {
+            this.getWeatherInfo(this.props.query);
+        }
     }
 
     render() {
         return (
-            <div className="container">
-                <Card
-                    isLoading={this.state.isLoading}
-                    cityVal={this.state.cityVal}
-                    description={this.state.description}
-                    tempVal={this.state.tempVal}
-                    windSpeedVal={this.state.windSpeedVal}
-                    cloudinessVal={this.state.cloudinessVal}
-                    humidityVal={this.state.humidityVal} />
-            </div>
+            <Card
+                isLoading={this.state.isLoading}
+                cityVal={this.state.cityVal}
+                description={this.state.description}
+                tempVal={this.state.tempVal}
+                windSpeedVal={this.state.windSpeedVal}
+                cloudinessVal={this.state.cloudinessVal}
+                humidityVal={this.state.humidityVal} />
         )
     }
 }

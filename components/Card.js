@@ -27,9 +27,23 @@ class Card extends React.Component {
                         </h2>
 
                         <p className="card__condition">
-                            {this.props.description}
+                            {
+                                this.props.description ?
+                                this.props.description :
+                                "Description"
+                            }
                             {/* {this.props.weatherInfo.weather.description} */}
                         </p>
+
+                        <div className="card__settings">
+                            <i className="card__settings-icon"></i>
+
+                            <ul className="card__settings-list">
+                                <li>
+                                    <a className="card__settings-item">Delete Block</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div className="card__block-container">
