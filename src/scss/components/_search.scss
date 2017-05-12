@@ -1,0 +1,47 @@
+.search {
+    padding: 25px;
+    width: 100%;
+    text-align: center;
+
+    &__input,
+    &__btn {
+        transition: all .2s;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 0;
+        padding: 10px 20px;
+        height: 49px;
+        font-size: 18px;
+        outline: 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .12),
+                    0 1px 2px rgba(0, 0, 0, .24);
+    }
+
+    &__input {
+        width: 300px;
+
+        &:focus,
+        &:valid {
+            width: 400px;
+
+            + .search__btn {
+                width: 100px;
+                padding: 10px 20px;
+            }
+        }
+    }
+
+    &__btn {
+        background: $blue;
+        color: $white;
+        white-space: nowrap;
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover {
+            background: darken($blue, 5%);
+        }
+    }
+}

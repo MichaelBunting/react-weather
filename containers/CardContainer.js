@@ -32,6 +32,8 @@ class CardContainer extends React.Component {
                 humidityVal: parseInt(res.data.main.humidity),
                 isLoading: false
             });
+        }).catch((err) => {
+            console.error(err.response.data.message);
         });
     }
 
