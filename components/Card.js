@@ -14,7 +14,7 @@ class Card extends React.Component {
                     {this.props.isLoading ? (
                         <div className="card__preloader">
                             <div className="card__preloader-content">
-                                Loading based on your location
+                                Loading
                                 <div className="card__preloader-loader"></div>
                             </div>
                         </div>
@@ -34,16 +34,6 @@ class Card extends React.Component {
                             }
                             {/* {this.props.weatherInfo.weather.description} */}
                         </p>
-
-                        <div className="card__settings">
-                            <i className="card__settings-icon"></i>
-
-                            <ul className="card__settings-list">
-                                <li>
-                                    <a className="card__settings-item">Delete Block</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div className="card__block-container">

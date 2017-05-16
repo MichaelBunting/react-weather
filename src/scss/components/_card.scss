@@ -7,10 +7,17 @@
     position: relative;
 
     &-container {
-        width: 50%;
+        width: 100%;
         padding: 25px;
         float: left;
-        max-width: 600px;
+
+        @media (min-width: 946px) {
+            width: 50%;
+        }
+
+        @media (min-width: 1440px) {
+            width: (100%/3);
+        }
     }
 
     &__preloader {
@@ -83,73 +90,6 @@
         text-align: center;
         border-bottom: 1px solid $charcoal-dark;
         position: relative;
-    }
-
-    &__settings {
-        transform: translate(0, -50%);
-        position: absolute;
-        top: 50%;
-        right: 30px;
-        padding: 15px 10px;
-        cursor: pointer;
-        z-index: 10;
-
-        &:hover {
-            .card__settings-list {
-                display: block;
-            }
-        }
-
-        &-icon,
-        &-icon::before,
-        &-icon::after {
-            width: 5px;
-            height: 5px;
-            background: $off-white;
-            border-radius: 50%;
-        }
-
-        &-icon {
-            position: relative;
-            display: block;
-
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                left: 0;
-            }
-
-            &::before {
-                top: -10px
-            }
-            &::after {
-                bottom: -10px;
-            }
-        }
-
-        &-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            border: 1px solid $charcoal-dark;
-        }
-
-        &-item {
-            display: block;
-            color: $off-white;
-            padding: 10px 20px;
-            background: $charcoal;
-            white-space: nowrap;
-
-            &:not(:last-child) {
-                border-bottom: 1px solid $charcoal-dark;
-            }
-        }
     }
 
     &__city {

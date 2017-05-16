@@ -11,8 +11,12 @@ body {
 
 .container {
     @include linear-gradient($lighter-blue, $light-blue);
-    padding: 25px;
+    padding: 0;
     min-height: 100vh;
+
+    @media (min-width: 500px) {
+        padding: 25px;
+    }
 
     &::after {
         content: '';
