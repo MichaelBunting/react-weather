@@ -81,14 +81,6 @@ class App extends React.Component {
                 }
             });
         });
-
-        // this.refs[blockName].getWeatherInfo
-
-        // Cookie.delete(blockName);
-
-        // delete this.state.cards[blockName];
-
-        // console.log(this.state.cards);
     }
 
     render() {
