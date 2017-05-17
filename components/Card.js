@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CardBlock from './CardBlock';
 
 class Card extends React.Component {
     constructor(props) {
         super(props);
+
+        this.onDelete = this.onDelete.bind(this);
+    }
+
+    onDelete() {
+        this.context.removeCard(this.props.blockName);
     }
 
     render() {
@@ -20,10 +27,15 @@ class Card extends React.Component {
                         </div>
                     ) : ''}
 
+                    <div
+                        className="card__delete"
+                        onClick={this.onDelete}>
+                        &times;
+                    </div>
+
                     <div className="card__loc">
                         <h2 className="card__city">
                             {this.props.cityVal}
-                            {/* {this.props.weatherInfo.name} */}
                         </h2>
 
                         <p className="card__condition">
@@ -32,7 +44,6 @@ class Card extends React.Component {
                                 this.props.description :
                                 "Description"
                             }
-                            {/* {this.props.weatherInfo.weather.description} */}
                         </p>
                     </div>
 
@@ -40,31 +51,31 @@ class Card extends React.Component {
                         <CardBlock
                             title="Temperature"
                             value={this.props.tempVal}
-                            // value={parseInt(this.props.weatherInfo.main.temp)}
                             unit="&deg; F"/>
 
                         <CardBlock
                             title="Wind Speed"
                             value={this.props.windSpeedVal}
-                            // value={parseInt(this.props.weatherInfo.wind.speed)}
                             unit="mph" />
 
                         <CardBlock
                             title="Cloudiness"
                             value={this.props.cloudinessVal}
-                            // value={parseInt(this.props.weatherInfo.clouds.all)}
                             unit="%" />
 
                         <CardBlock
                             title="Humidity"
                             value={this.props.humidityVal}
-                            // value={parseInt(this.props.weatherInfo.main.humidity)}
                             unit="%" />
                     </div>
                 </div>
             </div>
         )
     }
+}
+
+Card.contextTypes = {
+    removeCard: PropTypes.func
 }
 
 export default Card;

@@ -5,8 +5,8 @@ import Card from '../components/Card';
 import {WeatherCurrent} from '../helpers/WeatherCurrent';
 
 class CardContainer extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
         this.state = {
             cityVal: 'Loading...',
@@ -56,7 +56,8 @@ class CardContainer extends React.Component {
                 tempVal={this.state.tempVal}
                 windSpeedVal={this.state.windSpeedVal}
                 cloudinessVal={this.state.cloudinessVal}
-                humidityVal={this.state.humidityVal} />
+                humidityVal={this.state.humidityVal}
+                blockName={this.props.blockName}/>
         )
     }
 }

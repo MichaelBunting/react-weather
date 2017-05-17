@@ -18,11 +18,13 @@ class App extends React.Component {
         }
 
         this.addCard = this.addCard.bind(this);
+        this.removeCard = this.removeCard.bind(this);
     }
 
     getChildContext() {
         return {
-            addCard: this.addCard
+            addCard: this.addCard,
+            removeCard: this.removeCard
         }
     }
 
@@ -59,8 +61,34 @@ class App extends React.Component {
         });
 
         if (addCookie) {
-            Cookie.set(`blocks${highestCardNumer + 1}`, query, 10);
+            Cookie.set(`block${highestCardNumer + 1}`, query, 10);
         }
+    }
+
+    removeCard(blockName) {
+        var cards = this.state.cards;
+
+        delete cards[blockName];
+
+        this.setState({
+            cards: cards
+        }, () => {
+            Object.keys(this.state.cards).forEach((card) => {
+                var val = this.state.cards[card];
+
+                if (val !== true) {
+                    this.refs[card].getWeatherInfo(val);
+                }
+            });
+        });
+
+        // this.refs[blockName].getWeatherInfo
+
+        // Cookie.delete(blockName);
+
+        // delete this.state.cards[blockName];
+
+        // console.log(this.state.cards);
     }
 
     render() {
@@ -69,11 +97,13 @@ class App extends React.Component {
                 <SearchContainer />
 
                 {
-                    Object.values(this.state.cards).map(function(card, i) {
+                    Object.keys(this.state.cards).map((card, i) => {
                         return (
                             <CardContainer
+                                ref={card}
                                 key={i}
-                                {...card === true ? {currentLocation: "true"} : {query: card}}/>
+                                {...this.state.cards[card] === true ? {currentLocation: "true"} : {query: this.state.cards[card]}}
+                                blockName={card}/>
                         )
                     })
                 }
@@ -83,7 +113,8 @@ class App extends React.Component {
 }
 
 App.childContextTypes = {
-    addCard: PropTypes.func
+    addCard: PropTypes.func,
+    removeCard: PropTypes.func
 }
 
 export default App;
