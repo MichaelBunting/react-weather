@@ -81,6 +81,8 @@ class App extends React.Component {
                 }
             });
         });
+
+        Cookie.delete(blockName);
     }
 
     render() {
